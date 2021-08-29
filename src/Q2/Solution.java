@@ -1,68 +1,69 @@
 package Q2;
 
 /**
- * Reverse Bits
+ *
+ * Single Number
  * Problem Description
  *
- * Reverse the bits of an 32 bit unsigned integer A.
+ * Given an array of integers A, every element appears twice except for one. Find that single one.
+ *
+ * NOTE: Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
  *
  *
  *
  * Problem Constraints
- * 0 <= A <= 232
+ * 2 <= |A| <= 2000000
+ *
+ * 0 <= A[i] <= INTMAX
  *
  *
  *
  * Input Format
- * First and only argument of input contains an integer A.
+ * First and only argument of input contains an integer array A.
  *
  *
  *
  * Output Format
- * Return a single unsigned integer denoting the decimal value of reversed bits.
+ * Return a single integer denoting the single element.
  *
  *
  *
  * Example Input
  * Input 1:
  *
- *  0
+ *  A = [1, 2, 2, 3, 1]
  * Input 2:
  *
- *  3
+ *  A = [1, 2, 2]
  *
  *
  * Example Output
  * Output 1:
  *
- *  0
+ *  3
  * Output 2:
  *
- *  3221225472
+ *  1
  *
  *
  * Example Explanation
  * Explanation 1:
  *
- *         00000000000000000000000000000000
- * =>      00000000000000000000000000000000
+ * 3 occurs once.
  * Explanation 2:
  *
- *         00000000000000000000000000000011
- * =>      11000000000000000000000000000000
+ * 1 occurs once.
  */
-
 public class Solution {
-    public long reverse(long a) {
-        long y=0l;
-        for(long i=0l;i<=31l;i++)
+    // DO NOT MODIFY THE LIST. IT IS READ ONLY
+    int op=0;
+    public int singleNumber(final List<Integer> A) {
+        for(int i : A)
         {
-            if((a & (1l<<i))>0l)
-            {
-                y=y|(1l<<(31l-i));
-            }
+            op = op^i;
+
         }
 
-        return y;
+        return op;
     }
 }
